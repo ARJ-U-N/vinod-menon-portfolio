@@ -10,10 +10,13 @@ import Footer from './components/Footer';
 import './styles/App.css';
 import KeyMilestones from './components/KeyMilestones';
 import AdditionalMedia from './components/AdditionalMedia';
+import Squares from "./components/Squares/Squares";
+
 
 function App() {
   return (
     <div className="App">
+      <Squares className="site-bg" />
       <Header />
       <Hero />
       <About />

@@ -1,0 +1,143 @@
+/* ─────────── section + heading ─────────── */
+.milestones-section{
+  overflow:visible;
+  padding:110px 0;
+  background:linear-gradient(135deg,#0a1a2e 0%,#16213e 50%,#1a2b4a 100%);
+}
+.milestones-title{
+  font-size:clamp(2rem,2.5vw,3rem);
+  text-align:center;
+  color:#7dd3fc;
+  line-height:1.1;
+  margin-bottom:2.75rem;
+}
+
+/* ─────────── horizontal strip ─────────── */
+.timeline-area{
+  height:400px;
+  display:flex;
+  gap:4rem;
+  align-items:center;
+  overflow-x:auto;
+  overflow-y:visible;      /* cards can overflow upward if needed */
+  padding:0 1.5rem;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:thin;
+  scrollbar-color: transparent;
+}
+.timeline-area::-webkit-scrollbar{height:8px;}
+.timeline-area::-webkit-scrollbar-thumb{background:#60a5fa;border-radius:4px;}
+
+/* ─────────── spheres ─────────── */
+.milestone-sphere{
+  position:relative;
+  flex-shrink:0;
+  scroll-snap-align:start;
+  border-radius:50%;
+  cursor:pointer;
+  transition:transform .25s;
+  overflow:visible;
+}
+.milestone-sphere:hover{transform:scale(1.12);}
+
+.large-sphere {width:140px;height:140px;background:radial-gradient(circle at 30% 30%,#60a5fa,#3b82f6 70%);}
+.medium-sphere{width:110px;height:110px;background:radial-gradient(circle at 30% 30%,#60a5fa,#3b82f6 70%);}
+.small-sphere {width: 90px;height: 90px;background:radial-gradient(circle at 30% 30%,#60a5fa,#3b82f6 70%);}
+.dark-sphere  {width:110px;height:110px;background:radial-gradient(circle at 30% 30%,#475569,#334155 70%);}
+
+/* gloss highlight */
+.milestone-sphere::after{
+  content:'';
+  position:absolute;
+  top:25%;left:30%;
+  width:30%;height:30%;
+  background:radial-gradient(circle,rgba(255,255,255,.6),transparent 70%);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+
+/* ───────── tooltip card (ALWAYS BELOW) ───────── */
+.text-card{
+  position:absolute;
+  top:115%;
+  left:50%;
+  transform:translateX(-50%);
+  
+  /* width — make it fluid instead of fixed 280 px */
+  min-width:220px;          /* small cards on phones      */
+  max-width:280px;          /* never wider than 280 px    */
+  width:max-content;        /* shrink-to-fit the content  */
+  
+  padding:1.25rem;
+  background:transparent !important;
+  border: transparent;
+  border-radius:16px;
+  box-shadow:transparent;
+     /* include padding in width   */
+  
+  pointer-events:none;
+ 
+  z-index:100;
+}
+
+.text-card.show{opacity:-1;visibility:visible;pointer-events:auto;}
+
+.text-card h3{font-size:1.05rem;color:#fff;margin-bottom:.6rem;}
+.text-card p {font-size:.9rem;color:#cbd5e1;line-height:1.45;}
+.year-tag{
+  display:inline-block;margin-top:.5rem;
+  padding:.25rem .6rem;font-size:.8rem;font-weight:600;
+  color:#7dd7f9;
+  background:rgba(125,211,252,.25);
+  border:1px solid rgba(125,211,252,.45);
+  border-radius:12px;
+}
+
+/* ─────────── desktop centering (≥992 px) ─────────── */
+@media(min-width:992px){
+  .timeline-area{justify-content:center;gap:5rem;}
+}
+
+/* ─────────── tiny-screen tweak (≤500 px) ─────────── */
+@media(max-width:500px){
+  .timeline-area{gap:3rem;height:250px;}
+  .large-sphere{width:110px;height:110px;}
+  .medium-sphere,.dark-sphere{width:90px;height:90px;}
+  .small-sphere{width:75px;height:75px;}
+  .text-card{width:230px;max-width:230px;padding:1rem;}
+  .text-card h3{font-size:.95rem;}
+  .text-card p {font-size:.8rem;}
+}
+/* ─── let tool-tips extend fully on desktop ─── */
+@media (min-width: 992px) {
+  .timeline-area{
+    overflow-x: visible !important;   /* stop cropping card width   */
+    overflow-y: visible !important;   /* we already set this above  */
+  }
+}
+/* ────────── thin connecting line behind all spheres ────────── */
+.timeline-area{
+  position: relative;                  /* create positioning context  */
+}
+
+/* the line itself */
+.timeline-area::before{
+  content:"";
+  position:absolute;
+  top:50%;                             /* midway through the spheres  */
+  left:0; right:0;                     /* full row width              */
+  height:2px;
+  background: repeating-linear-gradient(
+               90deg,
+               #60a5fa 0 12px,         /* dash colour & length        */
+               transparent 12px 22px   /* 10-pixel gap                */
+             );
+  transform:translateY(-50%);          /* perfect vertical centering  */
+  z-index:0;                           /* sits behind the bubbles     */
+  opacity:.65;                         /* subtle so text stays legible*/
+  pointer-events:none;                 /* never blocks mouse events   */
+}
+
+/* lift each sphere above the line (already present, but be sure) */
+.milestone-sphere{ z-index:10; }

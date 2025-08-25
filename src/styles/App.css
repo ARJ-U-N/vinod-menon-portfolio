@@ -113,8 +113,8 @@ body {
 }
 
 .profile-image {
-  width: 280px;
-  height: 350px;
+  width: 480px;
+  height: 650px;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -262,8 +262,8 @@ body {
   }
   
   .profile-image {
-    width: 220px;
-    height: 280px;
+    width: 420px;
+    height: 480px;
   }
   
   .hero-bottom {
@@ -532,319 +532,7 @@ body {
   }
 }
 /* Key Milestones Section */
-.milestones-section {
-  padding: 80px 0;
-  background: linear-gradient(135deg, #0a1a2e 0%, #16213e 50%, #1a2b4a 100%);
-  position: relative;
-  overflow: hidden;
-}
 
-.milestones-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  position: relative;
-}
-
-.milestones-header {
-  margin-bottom: 4rem;
-}
-
-.milestones-title {
-  font-size: 3rem;
-  font-weight: 600;
-  color: #7dd3fc;
-  line-height: 1.1;
-}
-
-.timeline-area {
-  position: relative;
-  height: 600px;
-  width: 100%;
-}
-
-/* Timeline SVG Lines */
-.timeline-lines {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.connection-line {
-  animation: dashFlow 4s linear infinite;
-}
-
-@keyframes dashFlow {
-  0% {
-    stroke-dashoffset: 0;
-  }
-  100% {
-    stroke-dashoffset: 24;
-  }
-}
-
-/* Milestone Spheres */
-.milestone-sphere {
-  position: absolute;
-  z-index: 3;
-  border-radius: 50%;
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.4),
-    0 0 0 2px rgba(255, 255, 255, 0.1);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.milestone-sphere:hover {
-  transform: scale(1.1);
-  box-shadow: 
-    0 12px 40px rgba(59, 130, 246, 0.6),
-    0 0 0 3px rgba(255, 255, 255, 0.2);
-}
-
-.sphere-img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  pointer-events: none;
-}
-
-/* Sphere Sizes matching target design */
-.large-sphere {
-  width: 140px;
-  height: 140px;
-  background: radial-gradient(ellipse at 30% 30%, #60a5fa, #3b82f6, #1e40af);
-}
-
-.medium-sphere {
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(ellipse at 30% 30%, #60a5fa, #3b82f6, #1e40af);
-}
-
-.small-sphere {
-  width: 80px;
-  height: 80px;
-  background: radial-gradient(ellipse at 30% 30%, #60a5fa, #3b82f6, #1e40af);
-}
-
-.dark-sphere {
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(ellipse at 30% 30%, #475569, #334155, #1e293b);
-}
-
-/* Gloss effect on spheres */
-.milestone-sphere::after {
-  content: '';
-  position: absolute;
-  top: 20%;
-  left: 25%;
-  width: 30%;
-  height: 30%;
-  background: radial-gradient(ellipse at center, rgba(255,255,255,0.6), transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-/* Connection Dot */
-.connection-dot {
-  position: absolute;
-  z-index: 4;
-  width: 14px;
-  height: 14px;
-  background: #60a5fa;
-  border: 3px solid rgba(96, 165, 250, 0.4);
-  border-radius: 50%;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 0 0 6px rgba(96, 165, 250, 0.2);
-  animation: pulse 2.5s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: translateX(-50%) scale(1);
-    box-shadow: 0 0 0 6px rgba(96, 165, 250, 0.2);
-  }
-  50% {
-    transform: translateX(-50%) scale(1.15);
-    box-shadow: 0 0 0 10px rgba(96, 165, 250, 0);
-  }
-}
-
-/* Text Cards - Hidden by default, shown on hover */
-.text-card {
-  position: absolute;
-  z-index: 5;
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(25px);
-  border: 1px solid rgba(125, 211, 252, 0.4);
-  border-radius: 16px;
-  padding: 1.5rem;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(15px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-.text-card.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* Card positioning relative to spheres */
-.card-above {
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%) translateY(15px);
-  margin-bottom: 1.5rem;
-}
-
-.card-above.visible {
-  transform: translateX(-50%) translateY(0);
-}
-
-.card-below {
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-15px);
-  margin-top: 1.5rem;
-}
-
-.card-below.visible {
-  transform: translateX(-50%) translateY(0);
-}
-
-.card-left {
-  right: 100%;
-  top: 50%;
-  transform: translateY(-50%) translateX(15px);
-  margin-right: 1.5rem;
-}
-
-.card-left.visible {
-  transform: translateY(-50%) translateX(0);
-}
-
-.card-right {
-  left: 100%;
-  top: 50%;
-  transform: translateY(-50%) translateX(-15px);
-  margin-left: 1.5rem;
-}
-
-.card-right.visible {
-  transform: translateY(-50%) translateX(0);
-}
-
-/* Card Sizes */
-.large-card {
-  width: 300px;
-  min-height: 130px;
-}
-
-.medium-card {
-  width: 260px;
-  min-height: 110px;
-}
-
-.small-card {
-  width: 240px;
-  min-height: 100px;
-}
-
-/* Text Card Content */
-.text-card h3 {
-  font-size: 1.2rem;
-  color: #ffffff;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  line-height: 1.3;
-}
-
-.text-card p {
-  font-size: 0.95rem;
-  color: #cbd5e1;
-  line-height: 1.6;
-  margin-bottom: 0.75rem;
-}
-
-.year-tag {
-  display: inline-block;
-  background: rgba(125, 211, 252, 0.25);
-  color: #7dd3fc;
-  padding: 0.4rem 1rem;
-  border-radius: 16px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border: 1px solid rgba(125, 211, 252, 0.4);
-  margin-top: 0.75rem;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .timeline-area {
-    height: 500px;
-  }
-  
-  .large-sphere {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .medium-sphere, .dark-sphere {
-    width: 85px;
-    height: 85px;
-  }
-  
-  .small-sphere {
-    width: 65px;
-    height: 65px;
-  }
-}
-
-@media (max-width: 768px) {
-  .timeline-area {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    padding: 2rem 0;
-  }
-  
-  .milestone-sphere {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    align-self: center;
-  }
-  
-  .text-card {
-    position: relative !important;
-    transform: none !important;
-    margin: 1rem 0 !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    width: 100% !important;
-    max-width: 400px;
-  }
-  
-  .timeline-lines {
-    display: none;
-  }
-}
 /* Projects & Ventures Section */
 .projects-section {
   padding: 80px 0;
@@ -2112,130 +1800,93 @@ body {
   }
 }
 /* Mobile Milestones - Donut Chart */
-.mobile-milestones-section {
-  padding: 60px 0;
-  background: linear-gradient(135deg, #0a1a2e 0%, #16213e 50%, #1a2b4a 100%);
+/* ─────────── Key-Milestones universal strip ─────────── */
+
+.milestones-section{
+  padding:80px 0;
+  background:linear-gradient(135deg,#0a1a2e 0%,#16213e 50%,#1a2b4a 100%);
 }
 
-.mobile-milestones-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 0 1rem;
+/* heading */
+.milestones-title{
+  font-size:clamp(2rem,2.5vw,3rem);
+  color:#7dd3fc;text-align:center;line-height:1.1;
+  margin-bottom:2.5rem;
+}
+
+/* ¤ ONE horizontal strip that scrolls ¤ */
+.timeline-area{
+  height:300px;
+  display:flex;            /* row */
+  gap:4rem;                /* space between spheres */
+  align-items:flex-start;
+  overflow-x:auto;overflow-y:hidden;
+  padding:0 1.5rem;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:thin;scrollbar-color:#60a5fa transparent;
+}
+.timeline-area::-webkit-scrollbar{height:8px;}
+.timeline-area::-webkit-scrollbar-thumb{background:#60a5fa;border-radius:4px;}
+.timeline-lines{display:none!important;}          /* hide old svg */
+
+.milestone-sphere{
+  flex-shrink:0;
+  position:relative!important; /* break absolute desktop coords */
+  scroll-snap-align:start;
+  cursor:pointer;
+  transition:transform .25s;
+}
+.milestone-sphere:hover{transform:scale(1.12);}
+.large-sphere{width:140px;height:140px;}
+.medium-sphere,.dark-sphere{width:110px;height:110px;}
+.small-sphere {width:90px;height:90px;}
+.sphere-img{display:none;}                       /* hide empty <img> */
+
+/* tooltip card */
+.text-card{
+  position:absolute!important;
+  width:280px;max-width:280px;
+  padding:1.25rem;border-radius:16px;
+  background:rgba(15,23,42,.96);
+  border:1px solid rgba(125,211,252,.45);
+  color:#fff;box-shadow:0 15px 35px rgba(0,0,0,.5);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .25s;
+  z-index:10;
+}
+.milestone-sphere:hover  .text-card,
+.milestone-sphere:active .text-card{
+  opacity:1;visibility:visible;pointer-events:auto;
+}
+
+/* alternate ABOVE / BELOW so cards never collide */
+.timeline-area .milestone-sphere:nth-of-type(odd)  .text-card{
+  top:115%;left:50%;transform:translateX(-50%);
+}
+.timeline-area .milestone-sphere:nth-of-type(even) .text-card{
+  bottom:115%;left:50%;transform:translateX(-50%) translateY(-100%);
+}
+
+/* tiny-screen scale-down */
+@media(max-width:500px){
+  .timeline-area{gap:3rem;height:250px;}
+  .large-sphere{width:110px;height:110px;}
+  .medium-sphere,.dark-sphere{width:90px;height:90px;}
+  .small-sphere{width:75px;height:75px;}
+  .text-card{width:230px;max-width:230px;padding:1rem;}
+}
+/* full-page backdrop */
+.site-bg, 
+.squares-background,
+[class*="squares"] {
+  position: fixed;
+  inset: 0;
+  z-index: 0 !important;        /* deep background layer */
+  pointer-events: none;
+  opacity: 0.3;                   /* much more subtle    */
+}
+/* lift the normal React tree above the backdrop */
+#root, body {            /* or .app / .layout — whatever wraps your pages */
   position: relative;
-}
-
-.mobile-milestones-title {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #7dd3fc;
-  line-height: 1.1;
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.donut-chart-container {
-  position: relative;
-  width: 320px;
-  height: 320px;
-  margin: 0 auto;
-}
-
-.donut-chart {
-  width: 100%;
-  height: 100%;
-}
-
-.donut-segment {
-  transition: all 0.3s ease;
-}
-
-.donut-segment:hover {
-  filter: brightness(1.2);
-}
-
-.milestone-indicator {
-  background: rgba(59, 130, 246, 0.9);
-  color: white;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  font-weight: 600;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-}
-
-.indicator-text {
-  font-size: 0.6rem;
-  font-weight: 700;
-}
-
-.mobile-tooltip {
-  position: absolute;
-  bottom: -130px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(125, 211, 252, 0.4);
-  border-radius: 12px;
-  padding: 1rem;
-  max-width: 280px;
-  text-align: center;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-  animation: tooltipFadeIn 0.3s ease;
-}
-
-.mobile-tooltip h4 {
-  color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin: 0 0 0.5rem 0;
-  line-height: 1.3;
-}
-
-.mobile-tooltip p {
-  color: #cbd5e1;
-  font-size: 0.8rem;
-  line-height: 1.4;
-  margin: 0;
-}
-
-.tooltip-year {
-  display: inline-block;
-  background: rgba(125, 211, 252, 0.2);
-  color: #7dd3fc;
-  padding: 0.2rem 0.5rem;
-  border-radius: 8px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  margin-top: 0.5rem;
-  border: 1px solid rgba(125, 211, 252, 0.3);
-}
-
-@keyframes tooltipFadeIn {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-}
-
-/* Ensure no conflicts between desktop and mobile */
-@media (max-width: 768px) {
-  .milestones-section:not(.mobile-milestones-section) {
-    display: none !important;
-  }
-}
-
-@media (min-width: 769px) {
-  .mobile-milestones-section {
-    display: none !important;
-  }
+  z-index: 1;
 }

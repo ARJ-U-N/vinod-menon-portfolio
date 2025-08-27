@@ -1,8 +1,12 @@
 import React from 'react';
+import Hyperspeed from './Hyperspeed/Hyperspeed';
 
 const Hero = () => {
   return (
     <section id="hero" className="hero-section">
+      {/* Move Hyperspeed INSIDE the hero section */}
+      <Hyperspeed className="hero-bg" />
+      
       <div className="hero-container">
         <div className="hero-main">
           <div className="hero-left">

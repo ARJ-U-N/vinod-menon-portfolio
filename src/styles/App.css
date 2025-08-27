@@ -71,6 +71,9 @@ body {
   margin: 0 auto;
   padding: 0 2rem;
   width: 100%;
+  position: relative;
+  z-index: 10;
+  height: 100%;
 }
 
 .hero-main {
@@ -123,6 +126,15 @@ body {
   display: flex;
   gap: 1rem;
   align-items: center;
+}
+.hero-bg {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .social-icon {
@@ -308,6 +320,8 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
+  z-index: 10;
 }
 
 .about-content {

@@ -1,4 +1,5 @@
 import React from 'react';
+import SplitText from '../components/SplitText/SplitText';
 
 const MediaAccomplishments = () => {
   const accomplishments = [
@@ -12,7 +13,7 @@ const MediaAccomplishments = () => {
           source: "CoinTelegraph"
         },
         {
-          title: "The Future Of Regenerative DeFi", 
+          title: "The Future Of Regenerative DeFi",
           source: "Nasdaq"
         },
         {
@@ -34,7 +35,7 @@ const MediaAccomplishments = () => {
     },
     {
       id: 3,
-      type: "Award", 
+      type: "Award",
       icon: "m3.png",
       items: [
         {
@@ -55,12 +56,18 @@ const MediaAccomplishments = () => {
         <div className="media-layout">
           {/* Left Side - Title */}
           <div className="media-header">
-            <h2 className="media-title">
-              Media &<br />
-              Recognition
-            </h2>
+            <SplitText
+              text="Media & Recognition"
+              className="media-title"
+              tag="h2"
+              splitType="words"
+              delay={100}
+              duration={0.7}
+              from={{ opacity: 0, y: 40, rotationX: 45 }}
+              to={{ opacity: 1, y: 0, rotationX: 0 }}
+            />
           </div>
-          
+
           {/* Right Side - Cards */}
           <div className="media-cards">
             {accomplishments.map((accomplishment) => (
@@ -71,7 +78,7 @@ const MediaAccomplishments = () => {
                   </div>
                   <span className="badge-label">{accomplishment.type}</span>
                 </div>
-                
+
                 <div className="card-details">
                   {accomplishment.items.map((item, index) => (
                     <div key={index} className="detail-item">

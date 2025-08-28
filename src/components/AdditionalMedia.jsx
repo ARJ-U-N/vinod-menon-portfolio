@@ -1,4 +1,5 @@
 import React from 'react';
+import SplitText from '../components/SplitText/SplitText';
 
 const AdditionalMedia = () => {
   const mediaItems = [
@@ -10,7 +11,7 @@ const AdditionalMedia = () => {
     },
     {
       id: 2,
-      year: "2021", 
+      year: "2021",
       title: "World Economic Forum",
       subtitle: "Tech for Good Panel"
     },
@@ -32,9 +33,18 @@ const AdditionalMedia = () => {
     <section id="additional-media" className="additional-media-section">
       <div className="additional-media-container">
         <div className="section-header">
-          <h2 className="section-title">Additional Media Coverage</h2>
+          <SplitText
+            text="Additional Media Coverage"
+            className="section-title"
+            tag="h2"
+            splitType="chars"
+            delay={60}
+            duration={0.5}
+            from={{ opacity: 0, y: 20 }}
+            to={{ opacity: 1, y: 0 }}
+          />
         </div>
-        
+
         <div className="media-cards-grid">
           {mediaItems.map((item) => (
             <div key={item.id} className="media-coverage-card">

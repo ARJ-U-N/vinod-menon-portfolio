@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/KeyMilestones.css";
+import SplitText from '../components/SplitText/SplitText';
 
 /* ← edit your milestones here */
 const milestones = [
@@ -51,9 +52,18 @@ export default function KeyMilestones() {
 
   return (
     <section id="milestones" className="milestones-section">
-      <h2 className="milestones-title">
-        Key Mile<br />Stones
-      </h2>
+      <SplitText
+  text='Key Mile Stones'
+  className="milestones-title"
+  tag="h2"
+  splitType="chars"
+  delay={80}
+  duration={0.7}
+  from={{ opacity: 0, y: 50, scale: 0.8 }}
+  to={{ opacity: 1, y: 0, scale: 1 }}
+  ease="power3.out"
+/>
+
 
       <div className="timeline-area">
         {milestones.map((m) => (

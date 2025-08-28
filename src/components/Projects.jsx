@@ -1,5 +1,5 @@
 import React from 'react';
-
+import SplitText from '../components/SplitText/SplitText';
 const Projects = () => {
   const projects = [
     {
@@ -32,12 +32,19 @@ const Projects = () => {
     <section id="projects" className="projects-section">
       <div className="projects-container">
         <div className="projects-header">
-          <h2 className="projects-title">
-            Projects<br />
-            & Ventures
-          </h2>
+          <SplitText
+            text="Projects & Ventures"
+            className="projects-title"
+            tag="h2"
+            splitType="chars"
+            delay={70}
+            duration={0.6}
+            from={{ opacity: 0, y: 30, scale: 1.2 }}
+            to={{ opacity: 1, y: 0, scale: 1 }}
+            ease="power2.out"
+          />
         </div>
-        
+
         <div className="projects-grid">
           {projects.map((project) => (
             <div key={project.id} className={`project-card ${project.imagePosition}`}>
@@ -46,7 +53,7 @@ const Projects = () => {
                 <p className="project-description">{project.description}</p>
                 <button className="project-button">{project.buttonText}</button>
               </div>
-              
+
               <div className="project-image">
                 <img src={project.image} alt={project.title} />
               </div>

@@ -68,23 +68,27 @@ const MediaAccomplishments = () => {
             />
           </div>
 
-          {/* Right Side - Cards */}
+          {/* Right Side - Accomplishment Cards */}
           <div className="media-cards">
-            {accomplishments.map((accomplishment) => (
-              <div key={accomplishment.id} className={`media-card ${accomplishment.type.toLowerCase()}-card`}>
-                <div className="card-badge">
+            {accomplishments.map((accomplishment, index) => (
+              <div key={accomplishment.id} className={`media-accomplishment ${index % 2 === 1 ? 'reverse' : ''}`}>
+                {/* Colored Card - Icon & Label Only */}
+                <div className={`accomplishment-badge ${accomplishment.type.toLowerCase()}-badge`}>
                   <div className="badge-icon">
                     <img src={accomplishment.icon} alt={`${accomplishment.type} icon`} />
                   </div>
-                  <span className="badge-label">{accomplishment.type}</span>
+                  <div className="badge-label">{accomplishment.type.toUpperCase()}</div>
                 </div>
 
-                <div className="card-details">
-                  {accomplishment.items.map((item, index) => (
-                    <div key={index} className="detail-item">
+                {/* Text Content - Separate from colored card */}
+                <div className="accomplishment-content">
+                  {accomplishment.items.map((item, itemIndex) => (
+                    <div key={itemIndex} className="content-item">
                       <div className="item-title">{item.title}</div>
                       {item.source && (
-                        <div className="item-source">{item.source}</div>
+                        <div className={`item-source ${accomplishment.type.toLowerCase()}-source`}>
+                          {item.source}
+                        </div>
                       )}
                     </div>
                   ))}

@@ -1,88 +1,20 @@
-import { useState } from "react";
-import "../styles/KeyMilestones.css";
-import SplitText from '../components/SplitText/SplitText';
+import React from 'react';
+import '../styles/KeyMilestones.css';
 
-/* ← edit your milestones here */
-const milestones = [
-  {
-    id: "aquae",
-    size: "large",
-    title: "Co-Founder, AQUAE Labs",
-    desc: "A nature-based finance think tank pioneering sustainable solutions"
-  },
-  {
-    id: "phd",
-    size: "medium",
-    title: "PhD in Blockchain & Healthcare",
-    desc: "Swiss School of Management – bridging technology and wellness"
-  },
-  {
-    id: "mindwave",
-    size: "dark",
-    title: "Founder, MindWaveDAO",
-    desc: "Innovative platform bridging brain-wave data with DeFi"
-  },
-  {
-    id: "unga",
-    size: "small",
-    title: "UNGA Speaker",
-    desc: "Presented ALCI Green Credits at the United Nations General Assembly",
-    year: "2023"
-  },
-  {
-    id: "forbes",
-    size: "large",
-    title: "Member, Forbes Council",
-    desc: "Presented ALCI Green Credits at the United Nations General Assembly"
-  },
-  {
-    id: "giant",
-    size: "medium",
-    title: "Launch of “The Giant”",
-    desc: "Ground-breaking initiative featured at Super Bowl-scale events",
-    year: "2024"
-  }
-];
-
-export default function KeyMilestones() {
-  const [active, setActive] = useState(null);
-
-  const sphereClass = (s) =>
-    ({ large: "large-sphere", medium: "medium-sphere", small: "small-sphere", dark: "dark-sphere" }[s]);
-
+const KeyMilestones = () => {
   return (
-    <section id="milestones" className="milestones-section">
-      <SplitText
-  text='Key Mile Stones'
-  className="milestones-title"
-  tag="h2"
-  splitType="chars"
-  delay={80}
-  duration={0.7}
-  from={{ opacity: 0, y: 50, scale: 0.8 }}
-  to={{ opacity: 1, y: 0, scale: 1 }}
-  ease="power3.out"
-/>
-
-
-      <div className="timeline-area">
-        {milestones.map((m) => (
-          <div
-            key={m.id}
-            className={`milestone-sphere ${sphereClass(m.size)}`}
-            onMouseEnter={() => setActive(m.id)}
-            onMouseLeave={() => setActive(null)}
-            onTouchStart={() => setActive(m.id)}
-            onTouchEnd={() => setActive(null)}
-          >
-            <div className={`text-card ${active === m.id ? "show" : ""} card-below`}>
-              <h3>{m.title}</h3>
-              <p>{m.desc}</p>
-              {m.year && <span className="year-tag">{m.year}</span>}
-            </div>
-          </div>
-        ))}
+    <section className="milestones-section">
+      <div className="milestones-container">
+        <div className="milestones-image-wrapper">
+          <img 
+            src="am.png" 
+            alt="Dr. Vin Menon's Key Milestones Timeline" 
+            className="milestones-image"
+          />
+        </div>
       </div>
     </section>
-  );
+  )
 }
+
+export default KeyMilestones;

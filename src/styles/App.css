@@ -390,8 +390,8 @@ body {
 /* Very small screens - almost full width */
 @media (max-width: 360px) {
   .profile-image {
-    width: 460px;        
-    max-width: 540px;
+    width: 360px;        
+    max-width: 360px;
     height: auto;
     margin-bottom: -80px!important;
   }

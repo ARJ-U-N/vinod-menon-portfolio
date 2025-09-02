@@ -387,8 +387,8 @@ body {
 /* Very small screens */
 @media (max-width: 360px) {
   .profile-image {
-    width: 90vw;
-    max-width: 250px;
+    width: 100vw;
+    max-width: 350px;
   }
   
   .social-media {

@@ -390,10 +390,10 @@ body {
 /* Very small screens - almost full width */
 @media (max-width: 360px) {
   .profile-image {
-    width: 95vw;        /* 95% of viewport width */
+    width: 100vw;        /* 95% of viewport width */
     max-width: 340px;
     height: auto;
-    margin-bottom: -10px;
+    margin-bottom: -40px!important;
   }
   
   .social-media {

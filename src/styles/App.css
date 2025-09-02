@@ -388,12 +388,12 @@ body {
 }
 
 /* Very small screens - almost full width */
-@media (max-width: 360px) {
+@media (max-width: 560px) {
   .profile-image {
-    width: 100vw;        /* 95% of viewport width */
-    max-width: 340px;
+    width: 460px;        
+    max-width: 540px;
     height: auto;
-    margin-bottom: -40px!important;
+    margin-bottom: -80px!important;
   }
   
   .social-media {
